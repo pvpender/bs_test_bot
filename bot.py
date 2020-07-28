@@ -10,7 +10,11 @@ async def on_ready():
 @client.event
 async def on_message(message):
 
-    if message.content.startswith('hello') or message.content.startswith('hi') or message.content.startswith('привет') or message.content.startswith('дарова') or message.content.startswith('Hello') or message.content.startswith('Hi') or message.content.startswith('Привет') or message.content.startswith('Дарова'):
-     await message.channel.send('Привет, раб системы')
+    if message.content.startswith('!hello'):
+        await message.channel.send('Привет, раб системы')
+
+@client.event
+async def on_typing(message):
+    await message.channel.send(f"Чё пишешь, {client.user.id} ")
 
 client.run(TOKEN)
